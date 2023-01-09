@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="poker-client" />
+        <module name="app" />
         <module name="model" />
-        <module name="poker-server" />
+        <module name="generatorJPK" />
         <module name="common" />
       </profile>
     </annotationProcessing>

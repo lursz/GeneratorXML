@@ -1,0 +1,11 @@
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/game/Game.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/player/Player.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/object/Card.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/exceptions/PlayerInvalidCardsNumber.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/exceptions/CardsAlreadyThrown.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/object/Deck.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/object/Hand.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/exceptions/InvalidCommand.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/exceptions/BalanceTooLow.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/exceptions/InvalidCardCode.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/cards/exceptions/GameAlreadyInitialized.java

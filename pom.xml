@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.cards</groupId>
-    <artifactId>Poker</artifactId>
+    <artifactId>GeneratorXML</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>client</module>
+        <module>app</module>
         <module>common</module>
-        <module>server</module>
+        <module>generatorJPK</module>
         <module>model</module>
     </modules>
 
-    <name>poker_game</name>
+    <name>GeneratorXML</name>
     <url>http://www.example.com</url>
 
     <properties>
@@ -37,23 +37,23 @@
         <dependencies>
 
             <dependency>
-                <groupId>poker</groupId>
-                <artifactId>poker-client</artifactId>
+                <groupId>GeneratorXML</groupId>
+                <artifactId>GeneratorXML-client</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>poker</groupId>
-                <artifactId>poker-model</artifactId>
+                <groupId>GeneratorXML</groupId>
+                <artifactId>GeneratorXML-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>poker</groupId>
-                <artifactId>poker-server</artifactId>
+                <groupId>GeneratorXML</groupId>
+                <artifactId>GeneratorXML-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>poker</groupId>
-                <artifactId>poker-common</artifactId>
+                <groupId>GeneratorXML</groupId>
+                <artifactId>GeneratorXML-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

@@ -1,0 +1,1 @@
+# Generator plików XML

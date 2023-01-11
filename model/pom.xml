@@ -91,9 +91,10 @@
                     <sources>
                         <source>${basedir}/Faktury_VAT_-JPK_FA(3).xsd</source>
                     </sources>
-                    <outputDirectory>${basedir}/src/main/java/org/generator</outputDirectory>
+<!--                    /org/generator-->
+                    <outputDirectory>${basedir}/src/main/java</outputDirectory>
                     <clearOutputDir>false</clearOutputDir>
-                    <packageName>org.generator</packageName>
+                    <packageName>org.generator.entities</packageName>
                 </configuration>
             </plugin>
 

@@ -15,13 +15,19 @@ import java.math.BigDecimal;
 
 public class ParserCSV {
     JPK jpk = new JPK();
+    Reader in;
 
-    public ParserCSV(JPK jpk) {
-        this.jpk = jpk;
+    public ParserCSV(Reader in) {
+        this.in = in;
     }
 
-    public void readAndCreate() throws IOException, DatatypeConfigurationException {
-        Reader in = new FileReader("files/in/faktury-sprzedazowe-test-2023.csv");
+    public JPK getJpk() {
+        return jpk;
+    }
+
+    //========================================================
+
+    public void convert() throws IOException, DatatypeConfigurationException {
         Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
         for (CSVRecord record : records) {
             JPK.Faktura faktura = new JPK.Faktura();
@@ -76,51 +82,10 @@ public class ParserCSV {
 //            faktura.setCenaBruttoPozycji(cenaBruttoPozycji);
 
         }
-
-
-
-
     }
 
 
 
-
-    public void jaxbObjectToXML()
-    {
-        try
-        {
-            //Create JAXB Context
-            JAXBContext jaxbContext = JAXBContext.newInstance(JPK.class);
-
-            Marshaller m = jaxbContext.createMarshaller();
-            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-            // Write to System.out
-            m.marshal(jpk, System.out);
-
-            // Write to File
-            m.marshal(jpk, new File("files/out/jpk.xml"));
-
-
-
-//
-//            //Create Marshaller
-//            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-//
-//            //Required formatting??
-//            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-//
-//            //Store XML to File
-//            File file = new File("jpk.xml");
-//
-//            //Writes XML file to file-system
-//            jaxbMarshaller.marshal(jpk, file);
-        }
-        catch (JAXBException e)
-        {
-            e.printStackTrace();
-        }
-    }
 
 
 

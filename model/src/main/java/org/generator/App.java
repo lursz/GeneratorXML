@@ -21,15 +21,15 @@ public class App {
         try {
             JPK jpk = new JPK();
             if (input.endsWith(".csv")) {
-//                Reader file_in = new FileReader(input);
-                Reader file_in = new FileReader("files/file_in/faktury-sprzedazowe-test-2023.csv");
+                Reader file_in = new FileReader(input);
+//                Reader file_in = new FileReader("files/file_in/faktury-sprzedazowe-test-2023.csv");
                 ParserCSV parserCSV = new ParserCSV(file_in);
                 parserCSV.convert();
                 jpk = parserCSV.getJpk();
 
             } else if (input.endsWith(".xlsx")) {
-                //Usunac shardcodowanie
-                FileInputStream file_in = new FileInputStream(new File("files/in/faktury-sprzedazowe-test-2023.xlsx"));
+                FileInputStream file_in = new FileInputStream(new File(input));
+
                 ParserXLSX parserXLSX = new ParserXLSX(file_in);
 
             } else {
@@ -46,4 +46,5 @@ public class App {
 
         }
     }
+}
 

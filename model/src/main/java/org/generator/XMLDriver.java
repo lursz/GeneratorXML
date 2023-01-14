@@ -14,18 +14,6 @@ public class XMLDriver {
         this.jpk = jpk;
     }
 
-//    Kod do Hardcodowania XML, jakkolwiek to ma dzialac
-//    @XmlRootElement(name = "FakturaCtrl")
-//    @XmlType(propOrder = { "liczbaFaktur", "wartoscFaktur" })
-//    static class FakturaCtrl {
-//        @XmlElement(name = "LiczbaFaktur")
-//        public int liczbaFaktur;
-//        @XmlElement(name = "WartoscFaktur")
-//        public Integer wartoscFaktur = 0;
-//
-
-
-
     public void createXML()
     {
         try

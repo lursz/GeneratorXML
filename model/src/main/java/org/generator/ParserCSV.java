@@ -80,7 +80,9 @@ public class ParserCSV {
             String cenaBruttoPozycji = record.get(12);
             BigDecimal cenaBruttoPozycjiBigDecimal = toBigDecimal(cenaBruttoPozycji);
             //________________________________________________________
-            wrapperJPK_.add(nrFaktury, dataWystawienia, dataSprzedazy, nazwaOdbiorcy, adresOdbiorcy, nipOdbiorcy, liczbaSztukBigDecimal, cenaBruttoPozycjiBigDecimal, cenaNettoPozycjiBigDecimal, cenaNettoFakturyBigDecimal, cenaBruttoFakturyBigDecimal, kwotaPodatku);
+            wrapperJPK_.initialize();
+            wrapperJPK_.build();
+            wrapperJPK_.add(nrFaktury, dataWystawienia, dataSprzedazy, nazwaOdbiorcy, adresOdbiorcy, nipOdbiorcy, liczbaSztukBigDecimal, cenaBruttoPozycjiBigDecimal, cenaNettoPozycjiBigDecimal, cenaNettoFakturyBigDecimal, cenaBruttoFakturyBigDecimal, stawkaPodatku);
             jpk = wrapperJPK_.getJpk();
         }
     }

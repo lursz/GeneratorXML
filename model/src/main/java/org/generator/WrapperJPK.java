@@ -31,7 +31,7 @@ public class WrapperJPK {
     }
 
 
-     public WrapperJPK initialize() throws DatatypeConfigurationException {
+    public WrapperJPK initialize() throws DatatypeConfigurationException {
         WrapperJPK wrapper_ = new WrapperJPK();
         wrapper_.Header();
         wrapper_.Subject();
@@ -116,8 +116,8 @@ public class WrapperJPK {
         row.setP8A("szt");
         row.setP8B(amount);
         row.setP9A(unitPrice);
-        BigDecimal taxMultiplier = new BigDecimal(new BigInteger(tax), 2).add(BigDecimal.ONE);
-        row.setP9B(unitPrice.multiply(taxMultiplier).setScale(2, RoundingMode.FLOOR));
+//        BigDecimal taxMultiplier = new BigDecimal(new BigInteger(tax, 2)).add(BigDecimal.ONE);
+//        row.setP9B(unitPrice.multiply(taxMultiplier).setScale(2, RoundingMode.FLOOR));
         row.setP11(netPrice);
         row.setP12(tax);
 

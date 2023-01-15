@@ -36,6 +36,7 @@ org/generator/entities/TOsobaNiefizyczna1.class
 org/generator/entities/JPK$Naglowek.class
 org/generator/entities/package-info.class
 org/generator/entities/TIdentyfikatorOsobyFizycznejZagranicznej.class
+org/generator/ParserXLSX.class
 org/generator/entities/TOsobaNiefizycznaPelna.class
 org/generator/entities/TOsobaNiefizyczna2$AdresSiedziby.class
 org/generator/entities/TKodFormularza.class
@@ -45,9 +46,11 @@ org/generator/App.class
 org/generator/entities/TPodmiotDowolny1$AdresZamieszkaniaSiedziby.class
 org/generator/entities/TOsobaFizyczna4$AdresZamieszkania.class
 org/generator/entities/TNaglowek.class
+org/generator/XMLDriver.class
 org/generator/entities/TPodmiotDowolnyPelny$AdresZamieszkaniaSiedziby.class
 org/generator/entities/TOsobaFizyczna3.class
 org/generator/entities/TPodmiotDowolnyBezAdresu2.class
+org/generator/WrapperJPK.class
 org/generator/entities/JPK$Podmiot1.class
 org/generator/entities/TIdentyfikatorOsobyFizycznej2.class
 org/generator/entities/TPodmiotDowolny2.class

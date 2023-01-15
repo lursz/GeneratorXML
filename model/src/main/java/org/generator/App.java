@@ -17,15 +17,15 @@ public class App {
         String input = args[0];
         String output = args[1];
 
+        JPK jpk = new JPK();
         //Process inserted file
         try {
-            JPK jpk = new JPK();
             if (input.endsWith(".csv")) {
                 Reader file_in = new FileReader(input);
-//                Reader file_in = new FileReader("files/file_in/faktury-sprzedazowe-test-2023.csv");
                 ParserCSV parserCSV = new ParserCSV(file_in);
                 parserCSV.convert();
                 jpk = parserCSV.getJpk();
+
 
             } else if (input.endsWith(".xlsx")) {
                 FileInputStream file_in = new FileInputStream(new File(input));

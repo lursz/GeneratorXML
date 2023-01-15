@@ -3,11 +3,18 @@ package org.generator;
 import org.generator.entities.*;
 
 import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeConstants;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.*;
 public class WrapperJPK {
+    public JPK getJpk() {
+        return jpk;
+    }
+
     private JPK jpk;
     private Map<String, JPK.Faktura> faktury_;
     private List<JPK.FakturaWiersz> fakturyRows_;
@@ -24,7 +31,7 @@ public class WrapperJPK {
     }
 
 
-    static public WrapperJPK initialize() throws DatatypeConfigurationException {
+     public WrapperJPK initialize() throws DatatypeConfigurationException {
         WrapperJPK wrapper_ = new WrapperJPK();
         wrapper_.Header();
         wrapper_.Subject();
@@ -137,11 +144,46 @@ public class WrapperJPK {
             invoice.setP141(grossPrice.subtract(netPrice));
             invoice.setP15(grossPrice);
 
+            try {
+                invoice.setP1(toXMLGregorian(dateOfIssue));
+                updateDates(toXMLGregorian(dateOfIssue));
+            } catch (DatatypeConfigurationException ignored) {}
+
+            try {
+                invoice.setP6(toXMLGregorian(dateOfPurchase));
+                updateDates(toXMLGregorian(dateOfPurchase));
+            } catch (DatatypeConfigurationException ignored) {}
+
             updateFakturaCtrl(BigInteger.ONE, grossPrice);
 
             faktury_.put(invoiceNumber, invoice);
+
         }
     }
 
+
+
+    public BigDecimal toBigDecimal(String str) {
+        return new BigDecimal(str.replaceAll("[^\\d,-]", "").replace(',', '.'));
+    }
+
+    public XMLGregorianCalendar toXMLGregorian(String str) throws DatatypeConfigurationException {
+        return DatatypeFactory.newInstance().newXMLGregorianCalendar(str);
+    }
+
+    private void updateDates(XMLGregorianCalendar date) {
+        JPK.Naglowek header = jpk.getNaglowek();
+        if (header.getDataOd() == null || header.getDataOd().compare(date) == DatatypeConstants.LESSER) {
+            header.setDataOd(date);
+        }
+        if (header.getDataDo() == null || header.getDataDo().compare(date) == DatatypeConstants.GREATER) {
+            header.setDataDo(date);
+        }
+    }
+
+    public JPK build() {
+        jpk.getFaktura().addAll(faktury_.values());
+        return jpk;
+    }
 
 }

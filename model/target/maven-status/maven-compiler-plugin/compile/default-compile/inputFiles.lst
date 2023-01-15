@@ -1,11 +1,12 @@
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaNiefizyczna2.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TKodFormularza.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/WrapperJPK.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/XMLDriver.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TIdentyfikatorOsobyFizycznej2.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaFizyczna4.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TPodmiotDowolny2.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TIdentyfikatorOsobyFizycznejPelny.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TNaglowek.java
-/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/Parser.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TPodmiotDowolny1.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/MSCurrCodeType.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaFizyczna5.java
@@ -20,6 +21,7 @@
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaFizycznaPelna.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaNiefizycznaPelna1.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaFizycznaPelna1.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/ParserXLSX.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TIdentyfikatorOsobyFizycznej.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TPodmiotDowolnyBezAdresu2.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TPodmiotDowolnyPelny.java
@@ -30,6 +32,7 @@
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/CountryCodeExMSType.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaFizyczna1.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TAdresZagraniczny.java
+/home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/ParserCSV.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaNiefizyczna.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TOsobaFizyczna2.java
 /home/lenovo/Projects/GeneratorXML/model/src/main/java/org/generator/entities/TIdentyfikatorOsobyNiefizycznejPelny.java

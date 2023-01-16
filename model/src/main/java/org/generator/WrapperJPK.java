@@ -10,12 +10,14 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.*;
+
 public class WrapperJPK {
+    private JPK jpk;
+
     public JPK getJpk() {
         return jpk;
     }
 
-    private JPK jpk;
     private Map<String, JPK.Faktura> faktury_;
     private List<JPK.FakturaWiersz> fakturyRows_;
 
@@ -42,7 +44,6 @@ public class WrapperJPK {
         wrapper_.Subject();
         wrapper_.FakturaCtrl();
         wrapper_.FakturaRowCtrl();
-
         return wrapper_;
     }
 
@@ -94,6 +95,7 @@ public class WrapperJPK {
         invoiceCtrl.setLiczbaFaktur(new BigInteger("0"));
         invoiceCtrl.setWartoscFaktur(new BigDecimal("0.00"));
     }
+
     private void FakturaRowCtrl() {
         JPK.FakturaWierszCtrl invoiceRowCtrl = this.jpk.getFakturaWierszCtrl();
         invoiceRowCtrl.setLiczbaWierszyFaktur(new BigInteger("0"));
@@ -152,12 +154,14 @@ public class WrapperJPK {
             try {
                 invoice.setP1(toXMLGregorian(dateOfIssue));
                 updateDates(toXMLGregorian(dateOfIssue));
-            } catch (DatatypeConfigurationException ignored) {}
+            } catch (DatatypeConfigurationException ignored) {
+            }
 
             try {
                 invoice.setP6(toXMLGregorian(dateOfPurchase));
                 updateDates(toXMLGregorian(dateOfPurchase));
-            } catch (DatatypeConfigurationException ignored) {}
+            } catch (DatatypeConfigurationException ignored) {
+            }
 
             updateFakturaCtrl(BigInteger.ONE, grossPrice);
 
@@ -165,8 +169,6 @@ public class WrapperJPK {
 
         }
     }
-
-
 
     public BigDecimal toBigDecimal(String str) {
         return new BigDecimal(str.replaceAll("[^\\d,-]", "").replace(',', '.'));

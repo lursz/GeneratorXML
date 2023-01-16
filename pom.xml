@@ -50,25 +50,25 @@
 
     <dependencies>
 
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jaxb</groupId>-->
-<!--            <artifactId>jaxb-runtime</artifactId>-->
-<!--            <version>2.4.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jaxb</groupId>-->
+        <!--            <artifactId>jaxb-runtime</artifactId>-->
+        <!--            <version>2.4.0</version>-->
+        <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
         <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
-<!--        <dependency>-->
-<!--            <groupId>javax.activation</groupId>-->
-<!--            <artifactId>activation</artifactId>-->
-<!--            <version>1.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.activation</groupId>-->
+        <!--            <artifactId>activation</artifactId>-->
+        <!--            <version>1.1</version>-->
+        <!--        </dependency>-->
 
-<!--        &lt;!&ndash; JAXB API &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>javax.xml.bind</groupId>-->
-<!--            <artifactId>jaxb-api</artifactId>-->
-<!--            <version>2.3.1</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; JAXB API &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-api</artifactId>-->
+        <!--            <version>2.3.1</version>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api-parent -->
         <dependency>
@@ -80,12 +80,16 @@
 
 
         <!-- JAXB RI -->
-<!--        <dependency>-->
-<!--            <groupId>com.sun.xml.bind</groupId>-->
-<!--            <artifactId>jaxb-impl</artifactId>-->
-<!--            <version>2.3.4</version>-->
-<!--        </dependency>-->
-
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-impl</artifactId>-->
+        <!--            <version>2.3.4</version>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>

@@ -13,19 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 public class ParserCSV {
+    Reader in;
     private WrapperJPK wrapperJPK_;
-
     private JPK jpk;
 
     public JPK getJpk() {
         return jpk;
     }
-    private Map<String, JPK.Faktura> faktury_;
-    private List<JPK.FakturaWiersz> fakturyRows_;
-    public WrapperJPK getWrapperJPK_() {
-        return wrapperJPK_;
-    }
-    Reader in;
 
     public ParserCSV(Reader in) {
         this.in = in;
@@ -34,13 +28,9 @@ public class ParserCSV {
 
 
     public void convert() throws IOException, DatatypeConfigurationException {
-//        Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
         Iterable<CSVRecord> records = CSVFormat.EXCEL.withDelimiter('\t').withHeader().parse(in);
         records.iterator().next();
         for (CSVRecord record : records) {
-            System.out.println(record.size());
-
-//            JPK.Faktura faktura = new JPK.Faktura();
             //Nazwa odbiorcy
             String nazwaOdbiorcy = record.get(0);
             //Adres odbiorcy
@@ -79,7 +69,7 @@ public class ParserCSV {
             //Cena brutto pozycji
             String cenaBruttoPozycji = record.get(12);
             BigDecimal cenaBruttoPozycjiBigDecimal = toBigDecimal(cenaBruttoPozycji);
-            //________________________________________________________
+
             wrapperJPK_.initialize();
             wrapperJPK_.build();
             wrapperJPK_.add(nrFaktury, dataWystawienia, dataSprzedazy, nazwaOdbiorcy, adresOdbiorcy, nipOdbiorcy, liczbaSztukBigDecimal, cenaBruttoPozycjiBigDecimal, cenaNettoPozycjiBigDecimal, cenaNettoFakturyBigDecimal, cenaBruttoFakturyBigDecimal, stawkaPodatku);
@@ -91,8 +81,6 @@ public class ParserCSV {
     public BigDecimal toBigDecimal(String str) {
         return new BigDecimal(str.replaceAll("[^\\d,-]", "").replace(',', '.'));
     }
-
-
 
 
 }

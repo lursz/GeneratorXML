@@ -29,8 +29,9 @@ public class App {
 
             } else if (input.endsWith(".xlsx")) {
                 FileInputStream file_in = new FileInputStream(new File(input));
-
                 ParserXLSX parserXLSX = new ParserXLSX(file_in);
+                parserXLSX.convert();
+                jpk = parserXLSX.getJpk();
 
             } else {
                 System.out.println("Invalid file type");

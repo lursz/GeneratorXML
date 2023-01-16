@@ -7,7 +7,15 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.Reader;
 
+/**
+ * Main class
+ */
 public class App {
+    /**
+     * Main function
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         //Check for arguments
         if (args.length < 2) {
@@ -37,8 +45,8 @@ public class App {
                 System.out.println("Invalid file type");
                 return;
             }
-            //TODO
-            XMLDriver xmlDriver = new XMLDriver(jpk);
+
+            XMLDriver xmlDriver = new XMLDriver(jpk, output);
             xmlDriver.createXML();
 
         } catch (Exception e) {

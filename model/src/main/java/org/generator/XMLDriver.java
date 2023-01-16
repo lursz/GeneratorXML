@@ -12,13 +12,21 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Class to generate final XML file using received JPK object
+ */
 public class XMLDriver {
-   JPK jpk = new JPK();
+   private JPK jpk = new JPK();
+   private String output;
 
-    public XMLDriver(JPK jpk) {
+    public XMLDriver(JPK jpk, String output) {
         this.jpk = jpk;
+        this.output = output;
     }
 
+    /**
+     * Marshalling method to generate XML file
+     */
     public void createXML()
     {
         try
@@ -26,20 +34,8 @@ public class XMLDriver {
             JAXBContext jc = JAXBContext.newInstance(org.generator.entities.JPK.class);
             Marshaller m = jc.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            OutputStream os = Files.newOutputStream(Paths.get("jpk.xml"));
+            OutputStream os = Files.newOutputStream(Paths.get(output));
             m.marshal( jpk, os );
-
-            //Create JAXB Context
-//            JAXBContext jaxbContext = JAXBContext.newInstance(JPK.class);
-//            Marshaller m = jaxbContext.createMarshaller();
-//
-//            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-//
-//            //Store XML to File
-//            File file = new File("jpk.xml");
-//
-//            //Writes XML file to file-system
-//            m.marshal(jpk, file);
 
         }
         catch (JAXBException | IOException e)

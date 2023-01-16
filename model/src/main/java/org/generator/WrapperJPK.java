@@ -8,9 +8,11 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 import java.util.*;
 
+/**
+ * Wrapper class for JPK object
+ */
 public class WrapperJPK {
     private JPK jpk;
 
@@ -21,6 +23,9 @@ public class WrapperJPK {
     private Map<String, JPK.Faktura> faktury_;
     private List<JPK.FakturaWiersz> fakturyRows_;
 
+    /**
+     * Constructor
+     */
     WrapperJPK() {
         jpk = new JPK();
         jpk.setNaglowek(new JPK.Naglowek());
@@ -37,7 +42,11 @@ public class WrapperJPK {
         fakturyRows_ = jpk.getFakturaWiersz();
     }
 
-
+    /**
+     * Function to initialize other functions
+     * @return
+     * @throws DatatypeConfigurationException
+     */
     public WrapperJPK initialize() throws DatatypeConfigurationException {
         WrapperJPK wrapper_ = new WrapperJPK();
         wrapper_.Header();
@@ -47,7 +56,21 @@ public class WrapperJPK {
         return wrapper_;
     }
 
-
+    /**
+     * Function to add record
+     * @param invoiceNumber
+     * @param dateOfIssue
+     * @param dateOfPurchase
+     * @param buyer
+     * @param buyerAddress
+     * @param buyerNIP
+     * @param amount
+     * @param unitPrice
+     * @param rowNetPrice
+     * @param netPrice
+     * @param grossPrice
+     * @param tax
+     */
     public void add(String invoiceNumber, String dateOfIssue, String dateOfPurchase,
                     String buyer, String buyerAddress, String buyerNIP,
                     BigDecimal amount, BigDecimal unitPrice, BigDecimal rowNetPrice,
@@ -57,8 +80,10 @@ public class WrapperJPK {
         newFaktura(invoiceNumber, dateOfIssue, dateOfPurchase, buyer, buyerAddress, buyerNIP, netPrice, grossPrice);
     }
 
-
-    private void Header() {
+    /**
+     * Function to add header
+     */
+    void Header() {
         JPK.Naglowek naglowek_ = this.jpk.getNaglowek();
         TNaglowek.KodFormularza kod_formularza_ = naglowek_.getKodFormularza();
         kod_formularza_.setValue(TKodFormularza.fromValue("JPK_FA"));
@@ -71,7 +96,10 @@ public class WrapperJPK {
 
     }
 
-    private void Subject() {
+    /**
+     * Function to add subject
+     */
+    void Subject() {
         JPK.Podmiot1 podmiot1_ = this.jpk.getPodmiot1();
         TIdentyfikatorOsobyNiefizycznej1 id = new TIdentyfikatorOsobyNiefizycznej1();
         id.setNIP("6762484560");
@@ -90,31 +118,54 @@ public class WrapperJPK {
         podmiot1_.setAdresPodmiotu(podmiot_adres_);
     }
 
+    /**
+     * Function to add invoice
+     */
     private void FakturaCtrl() {
         JPK.FakturaCtrl invoiceCtrl = this.jpk.getFakturaCtrl();
         invoiceCtrl.setLiczbaFaktur(new BigInteger("0"));
         invoiceCtrl.setWartoscFaktur(new BigDecimal("0.00"));
     }
 
+    /**
+     * Function to add invoice row
+     */
     private void FakturaRowCtrl() {
         JPK.FakturaWierszCtrl invoiceRowCtrl = this.jpk.getFakturaWierszCtrl();
         invoiceRowCtrl.setLiczbaWierszyFaktur(new BigInteger("0"));
         invoiceRowCtrl.setWartoscWierszyFaktur(new BigDecimal("0.00"));
     }
 
+    /**
+     * Function to update invoice row
+     * @param i
+     * @param d
+     */
     private void updateFakturaCtrl(BigInteger i, BigDecimal d) {
         JPK.FakturaCtrl ctrl = this.jpk.getFakturaCtrl();
         ctrl.setLiczbaFaktur(ctrl.getLiczbaFaktur().add(i));
         ctrl.setWartoscFaktur(ctrl.getWartoscFaktur().add(d));
     }
 
+    /**
+     * Function to update invoice row
+     * @param i
+     * @param d
+     */
     private void updateFakturaRowCtrl(BigInteger i, BigDecimal d) {
         JPK.FakturaWierszCtrl ctrl = this.jpk.getFakturaWierszCtrl();
         ctrl.setLiczbaWierszyFaktur(ctrl.getLiczbaWierszyFaktur().add(i));
         ctrl.setWartoscWierszyFaktur(ctrl.getWartoscWierszyFaktur().add(d));
     }
 
-
+    /**
+     * Function to add new invoice row
+     * @param invoiceNumber
+     * @param amount
+     * @param unitPrice
+     * @param tax
+     * @param netPrice
+     */
     public void newFakturaRow(String invoiceNumber, BigDecimal amount, BigDecimal unitPrice, String tax,
                               BigDecimal netPrice) {
         JPK.FakturaWiersz row = new JPK.FakturaWiersz();
@@ -123,8 +174,6 @@ public class WrapperJPK {
         row.setP8A("szt");
         row.setP8B(amount);
         row.setP9A(unitPrice);
-//        BigDecimal taxMultiplier = new BigDecimal(new BigInteger(tax, 2)).add(BigDecimal.ONE);
-//        row.setP9B(unitPrice.multiply(taxMultiplier).setScale(2, RoundingMode.FLOOR));
         row.setP11(netPrice);
         row.setP12(tax);
 
@@ -133,6 +182,17 @@ public class WrapperJPK {
         fakturyRows_.add(row);
     }
 
+    /**
+     * Function to add new invoice
+     * @param invoiceNumber
+     * @param dateOfIssue
+     * @param dateOfPurchase
+     * @param buyer
+     * @param buyerAddress
+     * @param buyerNIP
+     * @param netPrice
+     * @param grossPrice
+     */
     private void newFaktura(String invoiceNumber, String dateOfIssue, String dateOfPurchase,
                             String buyer, String buyerAddress, String buyerNIP,
                             BigDecimal netPrice, BigDecimal grossPrice) {
@@ -170,14 +230,29 @@ public class WrapperJPK {
         }
     }
 
+    /**
+     * Function to convert string to BigDecimal
+     * @param str
+     * @return
+     */
     public BigDecimal toBigDecimal(String str) {
         return new BigDecimal(str.replaceAll("[^\\d,-]", "").replace(',', '.'));
     }
 
+    /**
+     * Function to convert string to XMLGregorian
+     * @param str
+     * @return
+     * @throws DatatypeConfigurationException
+     */
     public XMLGregorianCalendar toXMLGregorian(String str) throws DatatypeConfigurationException {
         return DatatypeFactory.newInstance().newXMLGregorianCalendar(str);
     }
 
+    /**
+     * Function to update dates
+     * @param date
+     */
     private void updateDates(XMLGregorianCalendar date) {
         JPK.Naglowek header = jpk.getNaglowek();
         if (header.getDataOd() == null || header.getDataOd().compare(date) == DatatypeConstants.LESSER) {
@@ -188,6 +263,10 @@ public class WrapperJPK {
         }
     }
 
+    /**
+     * Function to build JPK
+     * @return
+     */
     public JPK build() {
         jpk.getFaktura().addAll(faktury_.values());
         return jpk;

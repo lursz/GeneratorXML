@@ -1,6 +1,5 @@
 package org.generator;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -15,6 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 
+/**
+ * Parser class for XLSX files
+ */
 public class ParserXLSX {
     private JPK jpk = new JPK();
     private WrapperJPK wrapperJPK_ = new WrapperJPK();
@@ -30,12 +32,11 @@ public class ParserXLSX {
         return jpk;
     }
 
-    //=================================
-
+    /**
+     * Function to convert XLSX file to JPK object using wrapperJPK
+     */
     public void convert() {
         try {
-//            FileInputStream file = new FileInputStream(filePath);
-//            XSSFWorkbook workbook = new XSSFWorkbook(file);
             XSSFSheet sheet = workbook.getSheetAt(0);
             int rowCount = 0;
 
@@ -51,38 +52,33 @@ public class ParserXLSX {
                 //NIP odbiorcy
                 String nipOdbiorcy = row.getCell(2).getStringCellValue();
                 //Data wystawienia
-//                String dataWystawienia = row.getCell(3).getStringCellValue();
                 String dataWystawienia = dateToString(row.getCell(3).getDateCellValue());
                 //Data sprzedaży
-//                String dataSprzedazy = row.getCell(4).getStringCellValue();
                 String dataSprzedazy = dateToString(row.getCell(4).getDateCellValue());
                 //Numer faktury
                 String nrFaktury = row.getCell(5).getStringCellValue();
                 //Cena jednostkowa
-                String cenaJednostkowa = row.getCell(8).getStringCellValue();
-//                BigDecimal cenaJednostkowaBigDecimal = toBigDecimal(cenaJednostkowa);
+                String cenaJednostkowa = String.valueOf(row.getCell(8).getNumericCellValue());
                 //Stawka podatku
-                String stawkaPodatku = row.getCell(9).getStringCellValue();
-//                BigDecimal stawkaPodatkuBigDecimal = toBigDecimal(stawkaPodatku);
+                String stawkaPodatku =  String.valueOf(row.getCell(9).getNumericCellValue());
                 //Kwota podatku
-                String kwotaPodatku = row.getCell(10).getStringCellValue().replaceAll("[^\\d,-]", "").replace(',', '.');
-//                BigDecimal kwotaPodatkuBigDecimal = toBigDecimal(kwotaPodatku);
+                String kwotaPodatku =  String.valueOf(row.getCell(10).getNumericCellValue());
                 //Liczba sztuk
-                String liczbaSztuk = row.getCell(7).getStringCellValue();
+                String liczbaSztuk =  String.valueOf(row.getCell(7).getNumericCellValue());
                 BigDecimal liczbaSztukBigDecimal = toBigDecimal(liczbaSztuk);
                 //Tytul pozycji
                 String tytulPozycji = row.getCell(6).getStringCellValue();
                 //Kwota netto
-                String cenaNettoFaktury = row.getCell(13).getStringCellValue();
+                String cenaNettoFaktury =  String.valueOf(row.getCell(13).getNumericCellValue());
                 BigDecimal cenaNettoFakturyBigDecimal = toBigDecimal(cenaNettoFaktury);
                 //Kwota brutto
-                String cenaBruttoFaktury = row.getCell(14).getStringCellValue();
+                String cenaBruttoFaktury =  String.valueOf(row.getCell(14).getNumericCellValue());
                 BigDecimal cenaBruttoFakturyBigDecimal = toBigDecimal(cenaBruttoFaktury);
                 //Cena netto pozycji
-                String cenaNettoPozycji = row.getCell(11).getStringCellValue();
+                String cenaNettoPozycji =  String.valueOf(row.getCell(11).getNumericCellValue());
                 BigDecimal cenaNettoPozycjiBigDecimal = toBigDecimal(cenaNettoPozycji);
                 //Cena brutto pozycji
-                String cenaBruttoPozycji = row.getCell(12).getStringCellValue();
+                String cenaBruttoPozycji =  String.valueOf(row.getCell(12).getNumericCellValue());
                 BigDecimal cenaBruttoPozycjiBigDecimal = toBigDecimal(cenaBruttoPozycji);
                 rowCount++;
                 wrapperJPK_.initialize();
@@ -98,13 +94,30 @@ public class ParserXLSX {
 
     }
 
-
-    public BigDecimal toBigDecimal(String str) {
+    /**
+     * Function to convert String to BigDecimal
+     * @param str
+     * @return
+     */
+    static public BigDecimal toBigDecimal(String str) {
         return new BigDecimal(str.replaceAll("[^\\d,-]", "").replace(',', '.'));
     }
 
+    /**
+     * Function to convert Double to String
+     * @param d
+     * @return
+     */
+    static public String doubleToString(Double d) {
+        return String.valueOf(d);
+    }
 
-    public String dateToString(Date date) {
+    /**
+     * Function to convert Date to String
+     * @param date
+     * @return
+     */
+    static public String dateToString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }

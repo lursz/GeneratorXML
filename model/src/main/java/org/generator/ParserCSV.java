@@ -9,9 +9,10 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.*;
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Map;
 
+/**
+ * Parser class for CSV files
+ */
 public class ParserCSV {
     Reader in;
     private WrapperJPK wrapperJPK_;
@@ -26,7 +27,11 @@ public class ParserCSV {
         wrapperJPK_ = new WrapperJPK();
     }
 
-
+    /**
+     * Function to convert CSV file to JPK object using wrapperJPK
+     * @throws IOException
+     * @throws DatatypeConfigurationException
+     */
     public void convert() throws IOException, DatatypeConfigurationException {
         Iterable<CSVRecord> records = CSVFormat.EXCEL.withDelimiter('\t').withHeader().parse(in);
         records.iterator().next();
@@ -51,7 +56,6 @@ public class ParserCSV {
             BigDecimal stawkaPodatkuBigDecimal = new BigDecimal(stawkaPodatku);
             //Kwota podatku
             String kwotaPodatku = record.get(10).replaceAll("[^\\d,-]", "").replace(',', '.');
-//            BigDecimal kwotaPodatkuBigDecimal = toBigDecima(kwotaPodatku);
             //Liczba sztuk
             String liczbaSztuk = record.get(7);
             BigDecimal liczbaSztukBigDecimal = toBigDecimal(liczbaSztuk);
@@ -77,8 +81,12 @@ public class ParserCSV {
         }
     }
 
-
-    public BigDecimal toBigDecimal(String str) {
+    /**
+     * Function to convert String to BigDecimal
+     * @param str
+     * @return
+     */
+    static public BigDecimal toBigDecimal(String str) {
         return new BigDecimal(str.replaceAll("[^\\d,-]", "").replace(',', '.'));
     }
 

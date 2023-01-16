@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.generator"},{"l":"org.generator.entities"}];updateSearchResults();

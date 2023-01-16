@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JPK xmlns="http://jpk.mf.gov.pl/wzor/2019/09/27/09271/" xmlns:ns2="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/">
+    <Naglowek>
+        <KodFormularza/>
+        <WariantFormularza>0</WariantFormularza>
+        <CelZlozenia>0</CelZlozenia>
+        <DataOd>2020-10-14</DataOd>
+        <DataDo>2020-10-09</DataDo>
+    </Naglowek>
+    <Podmiot1/>
+    <Faktura>
+        <KodWaluty>PLN</KodWaluty>
+        <P_1>2020-10-09</P_1>
+        <P_2A>1/2023</P_2A>
+        <P_3A>Firma 1 SP. Z O.O.</P_3A>
+        <P_3B>UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW</P_3B>
+        <P_3C>"CORE LOGIC" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</P_3C>
+        <P_3D>ul. Feliksa Radwańskiego 15/1, 30-065 Kraków</P_3D>
+        <P_4A>PL</P_4A>
+        <P_4B>6762484560</P_4B>
+        <P_5B>634-27-26-447</P_5B>
+        <P_6>2020-10-09</P_6>
+        <P_13_1>1000.00</P_13_1>
+        <P_14_1>230.00</P_14_1>
+        <P_15>1230.00</P_15>
+        <P_16>false</P_16>
+        <P_17>false</P_17>
+        <P_18>false</P_18>
+        <P_18A>false</P_18A>
+        <P_19>false</P_19>
+        <P_20>false</P_20>
+        <P_21>false</P_21>
+        <P_22>false</P_22>
+        <P_23>false</P_23>
+        <P_106E_2>false</P_106E_2>
+        <P_106E_3>false</P_106E_3>
+    </Faktura>
+    <Faktura>
+        <KodWaluty>PLN</KodWaluty>
+        <P_1>2020-10-09</P_1>
+        <P_2A>1/2023</P_2A>
+        <P_3A>Firma 1 SP. Z O.O.</P_3A>
+        <P_3B>UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW</P_3B>
+        <P_3C>"CORE LOGIC" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</P_3C>
+        <P_3D>ul. Feliksa Radwańskiego 15/1, 30-065 Kraków</P_3D>
+        <P_4A>PL</P_4A>
+        <P_4B>6762484560</P_4B>
+        <P_5B>634-27-26-447</P_5B>
+        <P_6>2020-10-09</P_6>
+        <P_13_1>1000.00</P_13_1>
+        <P_14_1>230.00</P_14_1>
+        <P_15>1230.00</P_15>
+        <P_16>false</P_16>
+        <P_17>false</P_17>
+        <P_18>false</P_18>
+        <P_18A>false</P_18A>
+        <P_19>false</P_19>
+        <P_20>false</P_20>
+        <P_21>false</P_21>
+        <P_22>false</P_22>
+        <P_23>false</P_23>
+        <P_106E_2>false</P_106E_2>
+        <P_106E_3>false</P_106E_3>
+    </Faktura>
+    <Faktura>
+        <KodWaluty>PLN</KodWaluty>
+        <P_1>2020-10-14</P_1>
+        <P_2A>2/2023</P_2A>
+        <P_3A>Firma 2 Sp. z o.o</P_3A>
+        <P_3B>AL. A. Mickiewicza 141, 31-127 Kraków</P_3B>
+        <P_3C>"CORE LOGIC" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</P_3C>
+        <P_3D>ul. Feliksa Radwańskiego 15/1, 30-065 Kraków</P_3D>
+        <P_4A>PL</P_4A>
+        <P_4B>6762484560</P_4B>
+        <P_5B>113-29-95-753 </P_5B>
+        <P_6>2020-10-14</P_6>
+        <P_13_1>2000.00</P_13_1>
+        <P_14_1>460.00</P_14_1>
+        <P_15>2460.00</P_15>
+        <P_16>false</P_16>
+        <P_17>false</P_17>
+        <P_18>false</P_18>
+        <P_18A>false</P_18A>
+        <P_19>false</P_19>
+        <P_20>false</P_20>
+        <P_21>false</P_21>
+        <P_22>false</P_22>
+        <P_23>false</P_23>
+        <P_106E_2>false</P_106E_2>
+        <P_106E_3>false</P_106E_3>
+    </Faktura>
+    <FakturaCtrl>
+        <LiczbaFaktur>2</LiczbaFaktur>
+        <WartoscFaktur>3690.00</WartoscFaktur>
+    </FakturaCtrl>
+    <FakturaWiersz>
+        <P_2B>1/2023</P_2B>
+        <P_7>Sprzedaż usług krajowych</P_7>
+        <P_8A>szt</P_8A>
+        <P_8B>1</P_8B>
+        <P_9A>1230.00</P_9A>
+        <P_11>1000.00</P_11>
+        <P_12>23</P_12>
+    </FakturaWiersz>
+    <FakturaWiersz>
+        <P_2B>2/2023</P_2B>
+        <P_7>Sprzedaż usług krajowych</P_7>
+        <P_8A>szt</P_8A>
+        <P_8B>1</P_8B>
+        <P_9A>1230.00</P_9A>
+        <P_11>1000.00</P_11>
+        <P_12>23</P_12>
+    </FakturaWiersz>
+    <FakturaWiersz>
+        <P_2B>2/2023</P_2B>
+        <P_7>Sprzedaż usług krajowych</P_7>
+        <P_8A>szt</P_8A>
+        <P_8B>1</P_8B>
+        <P_9A>1230.00</P_9A>
+        <P_11>1000.00</P_11>
+        <P_12>23</P_12>
+    </FakturaWiersz>
+    <FakturaWierszCtrl>
+        <LiczbaWierszyFaktur>3</LiczbaWierszyFaktur>
+        <WartoscWierszyFaktur>3000.00</WartoscWierszyFaktur>
+    </FakturaWierszCtrl>
+</JPK>

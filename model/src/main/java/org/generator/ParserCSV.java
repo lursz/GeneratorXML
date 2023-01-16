@@ -34,7 +34,6 @@ public class ParserCSV {
      */
     public void convert() throws IOException, DatatypeConfigurationException {
         Iterable<CSVRecord> records = CSVFormat.EXCEL.withDelimiter('\t').withHeader().parse(in);
-        records.iterator().next();
         for (CSVRecord record : records) {
             //Nazwa odbiorcy
             String nazwaOdbiorcy = record.get(0);

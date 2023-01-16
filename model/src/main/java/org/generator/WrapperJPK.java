@@ -25,7 +25,12 @@ public class WrapperJPK {
         jpk.getNaglowek().setKodFormularza(new TNaglowek.KodFormularza());
         jpk.setPodmiot1(new JPK.Podmiot1());
         jpk.setFakturaCtrl(new JPK.FakturaCtrl());
+        jpk.getFakturaCtrl().setLiczbaFaktur(BigInteger.ZERO);
+        jpk.getFakturaCtrl().setWartoscFaktur(BigDecimal.ZERO);
+
         jpk.setFakturaWierszCtrl(new JPK.FakturaWierszCtrl());
+        jpk.getFakturaWierszCtrl().setWartoscWierszyFaktur(new BigDecimal("0"));
+        jpk.getFakturaWierszCtrl().setLiczbaWierszyFaktur(new BigInteger("0"));
         faktury_ = new HashMap<>();
         fakturyRows_ = jpk.getFakturaWiersz();
     }
